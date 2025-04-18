@@ -1,0 +1,77 @@
+{
+  "name": "solana-chat-app",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/manifest.json"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "REACT_APP_SOLANA_RPC_URL": "@solana_rpc_url",
+    "REACT_APP_SOLANA_NETWORK": "@solana_network",
+    "REACT_APP_SOLANA_CHAT_PROGRAM_ID": "@solana_chat_program_id",
+    "REACT_APP_WS_URL": "@websocket_url",
+    "REACT_APP_ENABLE_WEBSOCKET": "@enable_websocket",
+    "REACT_APP_POLLING_INTERVAL": "@polling_interval",
+    "REACT_APP_ENABLE_ENCRYPTION": "@enable_encryption"
+  },
+  "github": {
+    "silent": true
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "X-Content-Type-Options", 
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+

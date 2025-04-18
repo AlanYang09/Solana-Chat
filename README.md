@@ -1,3 +1,92 @@
+
+# Solana Chat Application
+
+A decentralized chat application built on the Solana blockchain. This application allows users to send messages, create group chats, and manage group memberships in a decentralized manner.
+
+## Features
+
+- Send and receive messages on the Solana blockchain
+- Create and manage group conversations
+- End-to-end encryption for private messages
+- Real-time updates via WebSocket
+- Wallet-based authentication
+
+## Prerequisites
+
+- Node.js (v14 or later)
+- NPM or Yarn
+- A Solana wallet (Phantom, Solflare, etc.)
+
+## Installation
+
+1. Clone the repository:
+```
+git clone https://github.com/yourusername/solana-chat-app.git
+cd solana-chat-app
+```
+
+2. Install dependencies:
+```
+npm install
+```
+
+3. Configure environment variables:
+```
+cp .env.example .env
+```
+Edit the `.env` file to match your configuration.
+
+4. Start the development server:
+```
+npm start
+```
+
+## Deployment
+
+### Vercel
+
+1. Push your code to a GitHub repository
+
+2. Connect your repository to Vercel
+
+3. Configure the environment variables in the Vercel project settings
+
+4. Deploy
+
+### Netlify
+
+1. Push your code to a GitHub repository
+
+2. Connect your repository to Netlify
+
+3. Configure the environment variables in the Netlify project settings
+
+4. Deploy
+
+### AWS Amplify
+
+1. Push your code to a GitHub repository
+
+2. Connect your repository to AWS Amplify
+
+3. Configure the environment variables in the Amplify project settings
+
+4. Deploy
+
+## WebSocket Server
+
+For real-time updates, you'll need a WebSocket server that subscribes to Solana program account changes. You can:
+
+1. Deploy a simple server using Node.js and `@solana/web3.js`
+
+2. Use a service like [Alchemy](https://www.alchemy.com/) or [QuickNode](https://www.quicknode.com/) that provides WebSocket endpoints
+
+3. Disable WebSockets and rely on polling by setting `REACT_APP_ENABLE_WEBSOCKET=false`
+
+## License
+
+[MIT](LICENSE)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
